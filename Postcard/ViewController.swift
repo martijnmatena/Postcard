@@ -11,9 +11,13 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+
     @IBOutlet weak var enterNameTextField: UITextField!
     @IBOutlet weak var enterMessageTextField: UITextField!
+    
     @IBOutlet weak var mailButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +34,21 @@ class ViewController: UIViewController {
         messageLabel.hidden = false //Label weer zichtbaar maken
         messageLabel.text = enterMessageTextField.text  //Label gelijk maken aan ingevoerde tekst
         messageLabel.textColor = UIColor.redColor() //Tekstkleur van het label rood maken
+                
+        nameLabel.hidden = false
+        nameLabel.text = enterNameTextField.text
+        nameLabel.textColor = UIColor.blueColor()
+        
+        enterNameTextField.text = ""
+        enterNameTextField.resignFirstResponder()
         
         enterMessageTextField.text = "" //Message veld leeg maken, nadat er iets is ingevuld
         enterMessageTextField.resignFirstResponder() //keyboard weghalen, nadat je iets hebt ingetypt
     
         mailButton.setTitle("Mail Sent", forState: UIControlState.Normal) //Title van de button aanpassen, zodra je er op hebt geklikt
+
         
+    
     }
 }
 
